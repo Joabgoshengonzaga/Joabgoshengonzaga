@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>cheat</title>
+<style>
+:root{
+  --bg:#0b0f16;
+  --card:#2f3539;
+  --muted:#c9d1d9;
+  --accent:#e6b31f;
+  --accent2:#f2c94c;
+  font-family:"Poppins",sans-serif;
+}
+body{
+  margin:0;background:var(--bg);color:var(--muted);
+  height:100vh;overflow:hidden;display:flex;align-items:center;justify-content:center;
+}
+
+/* main menu */
+.menu{
+  width:min(420px,92vw);
+  background:rgba(255,255,255,0.03);
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.05);
+  box-shadow:0 10px 25px rgba(0,0,0,0.6);
+  padding:16px;
+  display:none;
+  flex-direction:column;
+  gap:12px;
+  animation:fadeIn .3s ease;
+}
+@keyframes fadeIn{from{opacity:0;transform:scale(.95)}to{opacity:1;transform:scale(1)}}
+
+.title{font-size:26px;font-weight:700;color:var(--accent);text-align:center;}
+.subtitle{text-align:center;font-size:13px;color:#f0d98a;margin-bottom:8px;}
+
+.section{border:1px solid rgba(255,255,255,0.05);border-radius:14px;padding:12px;}
+.section h3{margin:0 0 8px;font-size:16px;color:var(--accent2);letter-spacing:1px;}
+.row{display:flex;align-items:center;justify-content:space-between;margin:6px 0;}
+.label{font-size:14px;}
+
+/* toggle switch simulated */
+.toggle{
+  width:48px;height:26px;border-radius:999px;
+  background:rgba(255,255,255,0.08);position:relative;cursor:pointer;
+}
+.knob{
+  width:20px;height:20px;border-radius:50%;
+  background:#fff;position:absolute;top:3px;left:3px;
+  transition:left .15s;
+}
+input[type=checkbox]:checked + .toggle{
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+}
+input[type=checkbox]:checked + .toggle .knob{
+  left:25px;
+}
+
+/* floating open button */
+.openBtn{
+  position:fixed;bottom:20px;right:20px;width:60px;height:60px;
+  border-radius:50%;background:linear-gradient(180deg,var(--accent),var(--accent2));
+  color:#000;font-size:26px;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,0.6);cursor:pointer;font-weight:bold;
+  z-index:10;
+}
+
+/* checkbox control for open/close */
+#menuToggle{display:none;}
+#menuToggle:checked ~ .menu{display:flex;}
+#menuToggle:checked ~ .openBtn{display:none;}
+</style>
+</head>
+<body>
+
+<input type="checkbox" id="menuToggle">
+
+<div class="menu">
+  <div class="title">cheat</div>
+  <div class="subtitle">ml cheat menu</div>
+
+  <div class="section">
+    <h3>PLAYER</h3>
+    <div class="row"><span class="label">God Mode</span><label><input type="checkbox" hidden><div class="toggle"><div class="knob"></div></div></label></div>
+    <div class="row"><span class="label">enemy bot</span><label><input type="checkbox" hidden><div class="toggle"><div class="knob"></div></div></label></div>
+<div class="row"><span class="label">enemy lag</span><label><input type="checkbox" hidden><div class="toggle"><div class="knob"></div></div></label></div>
+<div class="row"><span class="label">auto win</span><label><input type="checkbox" hidden><div class="toggle"><div class="knob"></div></div></label></div>
+    <div class="row"><span class="label">Auto Revive</span><label><input type="checkbox" hidden><div class="toggle"><div class="knob"></div></div></label></div>
+  </div>
+
+  <div class="section">
+    <h3>ESP</h3>
+    <div class="row"><span class="label">Player Boxes</span><label><input type="checkbox" hidden><div class="toggle"><div class="knob"></div></div></label></div>
+    <div class="row"><span class="label">Health Bar</span><label><input type="checkbox" hidden><div class="toggle"><div class="knob"></div></div></label></div>
+    <div class="row"><span class="label">Names</span><label><input type="checkbox" hidden><div class="toggle"><div class="knob"></div></div></label></div>
+  </div>
+
+  <div class="section">
+    <h3>MAPHACK</h3>
+    <div class="row"><span class="label">Reveal Map</span><label><input type="checkbox" hidden><div class="toggle"><div class="knob"></div></div></label></div>
+    <div class="row"><span class="label">Enemy Pings</span><label><input type="checkbox" hidden><div class="toggle"><div class="knob"></div></div></label></div>
+  </div>
+
+  <div class="section">
+    <h3>SUPER DAMAGE</h3>
+    <div class="row"><span class="label">One-Hit</span><label><input type="checkbox" hidden><div class="toggle"><div class="knob"></div></div></label></div>
+    <div class="row"><span class="label">Critical Always</span><label><input type="checkbox" hidden><div class="toggle"><div class="knob"></div></div></label></div>
+    <div class="row"><span class="label">Damage × 10</span><label><input type="checkbox" hidden><div class="toggle"><div class="knob"></div></div></label></div>
+  </div>
+
+  <div class="controls" style="display:flex;justify-content:center;margin-top:10px;">
+    <label for="menuToggle" class="btn warn" style="background:var(--card);color:#ff6464;border:1px solid rgba(255,80,80,0.15);padding:10px 18px;border-radius:10px;cursor:pointer;font-weight:600;">Close</label>
+  </div>
+</div>
+
+<label for="menuToggle" class="openBtn">⚙️</label>
+
+</body>
+</html>
